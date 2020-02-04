@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar color="principal">
+        <div text-center> 
+      
+      
+     <img src="/assets/imgs/logook.png" style="width: 50%;margin-left: -3.5em;margin-top: 0.5em;"/>
+    </div>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+    
+  
+
+      
+     <div *ngIf="!consultas">
+       <h3 text-center>No hay consultas actualmente</h3>
+     </div>
+     <div *ngIf="error">
+        <h3 text-center>No hay consultas actualmente</h3>
+      </div>
+     <ion-list>
+       <style>
+        .label-md {
+      margin: 0px!important;
+}
+        </style>
+       <div  *ngFor="let item of consultas">
+     
+          <ion-card [navPush]="detalle" [navParams]="item">
+              <ion-card-header [innerHTML]="">
+                  {{item['consultas_fecha_consulta'] | date: 'dd/MM/yyyy hh:mm:ss'}}
+              </ion-card-header>
+              <ion-card-content>
+                  <p style="color: black!important;">{{item['consultas_consulta']}} </p>
+              </ion-card-content>
+            </ion-card>
+           
+       </div>
+      
+  
+      
+  </ion-list>
+</ion-content>

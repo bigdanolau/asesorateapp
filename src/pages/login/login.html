@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar color="principal">
+        <div text-center> 
+      
+      <ion-title></ion-title>
+     <img src="/assets/imgs/logook.png" style="width: 50%;margin-left: -3.5em;margin-top: 0.5em;"/>
+    </div>
+   
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding style="background-image:url(./assets/imgs/fondo1.png)">
+  
+  <br><br><br><br>
+
+    <ion-item style="background-color:transparent;color:white!important;">
+      <ion-label floating style="color:white!important">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+    </ion-item><br><br>
+    <ion-item style="background-color:transparent;color:white!important;">
+      <ion-label floating style="color:white!important">Contraseña</ion-label>
+      <ion-input #input type="password"  [(ngModel)]="password" name="password" required></ion-input>
+    </ion-item><br><br>
+    <ion-item style="background-color:transparent;color:white!important;border-color:transparent!important;">
+        <button color="segundo" ion-button (click)="recuperar()" style="color:white!important;">Recuperar contraseña</button><br>
+    </ion-item>
+    <ion-item style="background-color:transparent;color:white!important;border-color:transparent!important;">
+      <ion-label for="checkbox" *ngIf="!passwordCheckbox">Mostrar Contraseña</ion-label>
+      <ion-label for="checkbox" *ngIf="passwordCheckbox">Ocultar Contraseña</ion-label>
+      <ion-checkbox  class="marginTop" id="checkbox" style="border-style: none;" [(ngModel)]="passwordCheckbox" (click)="showPassword(input)"></ion-checkbox>
+    </ion-item>
+    <br>
+    <button ion-button full (click)="login()" [disabled]="!email || !password" color="segundo">Iniciar Sesión</button>
+    <br>
+    <button ion-button full (click)="registro()"  color="blanco">¡Registrate!</button>
+
+ 
+</ion-content>

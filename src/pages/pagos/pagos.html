@@ -1,0 +1,100 @@
+<!--
+  Generated template for the PagosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="principal">
+     
+      <ion-title>Pagos</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content padding>
+
+
+<div class="container">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <div text-center>
+      <h4>¿Ya realizaste el pago?</h4>
+      <button ion-button full color="principal" type="submit" block (click)="login()">Login</button>
+    <br>
+    o <h4>!Adquiere una suscripción!</h4><br>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Suscripción trimestral</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="the-price">
+                        <h1>
+                            $42.000<span class="subscript">/mes</span></h1>
+                        <small>Lanzamiento  20% de descuento</small>
+                    </div>
+                    Precio Total:  $126.000
+                   
+                </div>
+                <div class="panel-footer">
+                    
+                    <a (click)="ir('https://biz.payulatam.com/L0c075aB324A10F')" target="new" class="btn btn-success" role="button">Pagar</a>
+                 </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-success">
+                <div class="cnrflash">
+                    <div class="cnrflash-inner">
+                        <span class="cnrflash-label">MÁS
+                            <br>
+                            POPULAR</span>
+                    </div>
+                </div>
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Suscripción semestral</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="the-price">
+                        <h1>
+                            $40.000<span class="subscript">/mes</span></h1>
+                        <small>Lanzamiento  20% de descuento</small>
+                    </div>
+                    Precio Total: $240.000
+                </div>
+                <div class="panel-footer">
+                    <a (click)="ir('https://biz.payulatam.com/L0c075a367F7918')" target="new" class="btn btn-success" role="button">Pagar</a></div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Suscripción anual</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="the-price">
+                        <h1>
+                            $36.000<span class="subscript">/mes</span></h1>
+                        <small>Lanzamiento  20% de descuento</small>
+                    </div>
+                    Precio Total: $432.000
+                </div>
+                <div class="panel-footer">
+                    <a  (click)="ir('https://biz.payulatam.com/L0c075aBE9A0824')" target="new" class="btn btn-success" role="button">Pagar</a> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</ion-content>

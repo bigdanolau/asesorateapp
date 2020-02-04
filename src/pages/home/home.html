@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="principal" hideBackButton="true">
+      <div text-center> 
+    
+    <ion-title></ion-title>
+   <img src="/assets/imgs/logook.png" style="width: 50%;margin-left: -3.5em;margin-top: 0.5em;"/>
+  </div>
+  
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding><br>   
+  <br>
+  <h2 text-center>Realice aquí su consulta</h2>
+  
+  <form #consulta="ngForm">
+    <ion-item>
+      <ion-label floating>Consulta</ion-label>
+      <ion-textarea [(ngModel)]="description" name="description" required></ion-textarea>
+    </ion-item>
+    
+      
+      <ion-item>
+          <ion-label floating>Departamento</ion-label>
+        <ion-select  [(ngModel)]="departamento" name="departamento" (ionChange)="config.getCiudades($event)" required>
+          <ion-option *ngFor="let departamentof of config.departamentos" [value]="departamentof['departamentos_id_departamento']" >{{departamentof['departamentos_nombre']}}</ion-option>
+      </ion-select>
+      </ion-item>
+      <div style="padding: 1em;box-sizing: border-box" ><span style="color:rgb(151, 156, 160); ">* Seleccione la ubicación donde va a necesitar de el profesional del derecho</span></div>
+      <ion-item *ngIf="config.ciudades">
+          <ion-label floating>Ciudad</ion-label>
+      <ion-select  [(ngModel)]="ciudad" name="ciudad"  required  >
+      
+        <ion-option *ngFor="let ciudad of config.ciudades" [value]="ciudad['ciudades_id_ciudad']" >{{ciudad['ciudades_nombre']}}</ion-option>
+      </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+        </ion-item>
+    <br>
+    <button ion-button full color="segundo" type="submit" block (click)="guardar()" [disabled]="!consulta.valid" >Enviar </button>
+  </form><br>
+  <div text-center ><span  style="color:#999!important; font-size: 12px;line-height: 1px!important;">Su consulta será contestada por profesionales del derecho con experencia en el asunto y a poco metros de su ubicación. <br>Para que asi usted pueda seleccionar la mejor opcion</span></div>
+ <!--  <button ion-button secondary menuToggle>Toggle Menu</button> -->
+</ion-content>

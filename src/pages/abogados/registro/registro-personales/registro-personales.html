@@ -1,0 +1,76 @@
+<!--
+  Generated template for the RegistroPersonalesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="principal">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Información personal</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #personales="ngForm">
+  <ion-item>
+    <ion-label floating >Nombre</ion-label>
+    <ion-input type="text" [(ngModel)]="nombre" name="nombre" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Cédula</ion-label>
+     <ion-input type="number" [(ngModel)]="cedula" name="cedula" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating># Tarjeta Profesional</ion-label>
+     <ion-input type="number" [(ngModel)]="tarjetaprofe" name="tarjetaprofe" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Celular</ion-label>
+     <ion-input type="number" [(ngModel)]="celular" name="celular" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+     <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Contraseña</ion-label>
+     <ion-input type="password" [(ngModel)]="password" name="password" minlength="6" #uname="ngModel" required></ion-input>
+ 
+ 
+    </ion-item>
+    <span *ngIf="uname.errors?.minlength">Mínimo 6 caracteres </span>
+  
+  
+  <br>
+<ion-item floating>
+    <ion-label>Departamento</ion-label>
+  <ion-select  [(ngModel)]="departamento" name="departamento" (ionChange)="config.getCiudades($event)" required>
+    <ion-option *ngFor="let departamentof of config.departamentos" [value]="departamentof['departamentos_id_departamento']" >{{departamentof['departamentos_nombre']}}</ion-option>
+</ion-select>
+</ion-item>
+<ion-item *ngIf="config.ciudades">
+    <ion-label floating>Ciudad</ion-label>
+<ion-select  [(ngModel)]="ciudadd" name="ciudad" required  >
+
+  <ion-option *ngFor="let ciudad of config.ciudades" [value]="ciudad['ciudades_id_ciudad']" >{{ciudad['ciudades_nombre']}}</ion-option>
+</ion-select>
+</ion-item>
+
+<br>
+
+
+<ion-label >Foto de perfil</ion-label>
+    <input type="file" [id]="foto_perfil" [(ngModel)]="foto_perfil" name="foto_perfil" (change)="chooseFiles($event)"  required />
+<br>
+    <button ion-button full color="segundo" [disabled]="personales.invalid" (click)="getPersonales(personales)">Siguiente</button>
+
+</form>
+  <!--<input #fileInput type="file" (change)="chooseFiles($event)" /> -->
+</ion-content>

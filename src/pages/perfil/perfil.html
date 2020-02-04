@@ -1,0 +1,146 @@
+<!--
+  Generated template for the PerfilPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content >
+
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  
+    <div class="row login_box">
+        <div class="col-md-12 col-xs-12" align="center">
+              <br>
+              <div class="outter"><img [src]="info?.abogados_foto" class="image-circle"/></div>   
+              <h1 style="color:white!important;">{{info?.abogados_nombre}}</h1>
+              <span style="color:white!important;">{{info?.abogados_cedula}}</span>
+        </div>
+          <div class="col-md-12 col-xs-12 follow line" align="center">
+              <h3 style="color:white!important;">
+                  {{info?.abogados_tarjeta}} <br/> <span>T.Profesional</span>
+              </h3>
+          </div>
+          <!-- <div class="col-md-6 col-xs-6 follow line" align="center">
+              <h3 style="color:white!important;">
+                  {{info?.abogados_telefono}} <br/> <span>Teléfono</span>
+              </h3>
+          </div> -->
+          
+          <div class="col-md-12 col-xs-12 login_control">
+              <div padding>
+                  <ion-segment [(ngModel)]="pet" style="background-color: #ac242b; color:white!important;">
+                    <ion-segment-button value="kittens" style="color:white">
+                      Ver Perfil
+                    </ion-segment-button>
+                    <ion-segment-button value="puppies" style="color:white">
+                      Actualizar datos
+                    </ion-segment-button>
+                  </ion-segment>
+                </div>
+                <div [ngSwitch]="pet">
+                    <ion-list *ngSwitchCase="'puppies'">
+                        <form #personales="ngForm">
+                            
+                              <ion-label floating >Nombre</ion-label>
+                              <ion-input type="text" [(ngModel)]="nombre" name="nombre" disabled></ion-input>
+                            
+                         
+                              <ion-label floating>Cédula</ion-label>
+                               <ion-input type="number" [(ngModel)]="cedula" name="cedula" disabled required></ion-input>
+                            
+                            
+                              <ion-label floating># Tarjeta Profesional</ion-label>
+                               <ion-input type="number" [(ngModel)]="tarjetaprofe" name="tarjetaprofe" disabled required></ion-input>
+                           
+                            
+                              <ion-label floating>Celular</ion-label>
+                               <ion-input type="number" [(ngModel)]="celular" name="celular"  required></ion-input>
+                          
+                    
+                            <div>
+                                <ion-label>Departamento</ion-label>
+                            </div>
+                          <ion-item no-lines>
+                              
+                            <ion-select  [(ngModel)]="departamento" name="departamento" (ionChange)="config.getCiudades($event)" >
+                              <ion-option *ngFor="let departamentof of config.departamentos" [value]="departamentof['departamentos_id_departamento']" >{{departamentof['departamentos_nombre']}}</ion-option>
+                          </ion-select>
+                        </ion-item>
+                        <div *ngIf="config.ciudades">
+                            <ion-label floating>Ciudad</ion-label>
+                        </div>
+                          <ion-item no-lines *ngIf="config.ciudades">
+                             
+                          <ion-select  [(ngModel)]="ciudadd" name="ciudad"   >
+                          
+                            <ion-option *ngFor="let ciudad of config.ciudades" [value]="ciudad['ciudades_id_ciudad']" >{{ciudad['ciudades_nombre']}}</ion-option>
+                          </ion-select>
+                        </ion-item>
+                          
+                          <br>
+                          
+                          
+                          <ion-label >Foto de perfil</ion-label>
+                              <input type="file" [id]="foto_perfil" [(ngModel)]="foto_perfil" name="foto_perfil" (change)="chooseFiles($event)"  />
+                          <br>
+                          <ion-list *ngIf="abogado?.archivosname">
+                              <button ion-item *ngFor="let ramas of abogado?.archivos"> 
+                                <ion-icon name="checkmark-circle" item-start></ion-icon>
+                                {{ramas.rama}}
+                              </button>
+                            </ion-list>      
+                            <br>
+                         
+                          
+                            <button ion-button  full color="principal" (click)="modal()"><ion-icon name="add" item-start></ion-icon> Ramas a ejercer</button>
+                              <button ion-button full color="segundo" [disabled]="personales.invalid" (click)="getPersonales(personales)">Guardar</button>
+                          
+                          </form>
+                      ...
+                    </ion-list>
+                  
+                    <ion-list *ngSwitchCase="'kittens'">
+                        <form #personales="ngForm">
+                            
+                            <ion-label floating >Nombre</ion-label>
+                            <ion-input type="text" [(ngModel)]="nombre" name="nombre" disabled></ion-input>
+                          
+                       
+                            <ion-label floating>Cédula</ion-label>
+                             <ion-input type="number" [(ngModel)]="cedula" name="cedula" disabled required></ion-input>
+                          
+                          
+                            <ion-label floating># Tarjeta Profesional</ion-label>
+                             <ion-input type="number" [(ngModel)]="tarjetaprofe" name="tarjetaprofe" disabled required></ion-input>
+                         
+                          
+                            <ion-label floating>Celular</ion-label>
+                             <ion-input type="number" [(ngModel)]="celular" name="celular" disabled required></ion-input>
+                        
+                        
+                        <br>
+                        
+                        
+                      
+                       
+                        
+                          
+                            <button ion-button full color="segundo" [disabled]="personales.invalid" (click)="go()" [disabled]="estado == 0">Ver consultas asignadas</button>
+                            <span *ngIf="estado == 0">
+                              El usurio no ha sido activado, si ya realizó el pago, en breve sera activado.
+                            </span>
+                            <button *ngIf="estado == 0" ion-button full color="dark" (click)="pago()">Realizar pago</button>
+                        </form>
+                    </ion-list>
+                  </div>
+                 
+                  
+          </div>
+          
+          
+              
+      </div>
+</ion-content>

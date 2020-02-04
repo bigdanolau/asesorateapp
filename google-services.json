@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "386740019081",
+    "firebase_url": "https://asesorateapp.firebaseio.com",
+    "project_id": "asesorateapp",
+    "storage_bucket": "asesorateapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386740019081:android:49552ea165fb7266",
+        "android_client_info": {
+          "package_name": "asesorateapp.danieldiseno.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386740019081-37t4tcv8pho5q2t66akgrniqtfcmeppm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAygFFQLad3wair9CefxDEkgfIImNPySL8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

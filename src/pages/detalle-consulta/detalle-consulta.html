@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar color="principal">
+        <div text-center> 
+      
+      
+     <img src="/assets/imgs/logook.png" style="width: 50%;margin-left: -3.5em;margin-top: 0.5em;"/>
+    </div>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content >
+    <div *ngIf="!abogado.isAbogado">
+        <img [src]="info?.abogados_foto">
+      
+        <h2 text-center>{{info['abogados_nombre']}}</h2>
+
+      </div>
+    <div padding>
+      <p  *ngIf="!abogado.isAbogado" style="text-align:justify">{{consulta['consultas_consulta']}}</p>
+      
+      
+      <br>
+      <div *ngIf="abogado.isAbogado">
+          <h4 text-center>Consulta: </h4>
+          <p  *ngIf="abogado.isAbogado" style="text-align:justify">{{consulta?.consultas_consulta}}</p>
+        <br>
+        
+        <h4 text-center>Escribir Respuesta</h4><br>
+     
+            <textarea placeholder="Escribir aquí..." style="width:100%" [(ngModel)]="respuesta" name="respuesta"></textarea>
+        
+       
+        <button ion-button full color="segundo" [disabled]="!respuesta" (click)="registrar(consulta?.consultas_id_consultas)">Enviar</button>
+      <br>
+      <span text-center><strong>Nota:</strong> Solo tienes un intento de respuesta para cada pregunta, así que sé lo más claro y concreto posible.</span>
+      </div>
+      <div *ngIf="!abogado.isAbogado">
+        
+          <h4 text-center>Respuesta: </h4>
+          <p>{{info?.respuestas_respuesta}}</p><br>
+          <button ion-button full color="principal" (click)="contactar()">Contactar Abogado</button>
+      </div>
+    </div>
+</ion-content>
